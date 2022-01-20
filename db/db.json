@@ -29,7 +29,20 @@
       "id": 4
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 1,
+      "messageText": "Hello! 👋 ",
+      "conversationId": 1,
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "messageText": "Hello! 👋 ",
+      "conversationId": 2,
+      "id": 2
+    }
+  ],
   "conversations": [
     {
       "userId": 1,

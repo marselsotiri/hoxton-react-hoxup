@@ -11,6 +11,8 @@ export default function App() {
 
     <Route path="/logged-in" element={<Main /> } />
 
+    <Route path="/logged-in/:conversationId" element={<Main /> } />
+
     {/* <Route path="*" element={<NotFound />} /> */}
 
   </Routes>
