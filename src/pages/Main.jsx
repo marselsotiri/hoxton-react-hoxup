@@ -15,7 +15,7 @@ function Main({ currentUser, logOut, users }) {
 
     useEffect(() => {
         if (params.conversationId) {
-            fetch(`http://localhost:4000/conversations/${params.conversationId}?_embed=messages`)
+            fetch(`http://localhost:4000/messages?conversationId=${params.conversationId}`)
                 .then(resp => resp.json())
                 .then(conversationFromServer => setcurrentConversation(conversationFromServer))
         }
@@ -69,7 +69,7 @@ function Main({ currentUser, logOut, users }) {
                 {/* <!-- Chat header --> */}
                 <header className="panel"></header>
 
-                <MainMessages />
+                <MainMessages currentConversation={currentConversation} currentUser={currentUser}/>
 
                 {/* <!-- Message Box --> */}
                 <footer>

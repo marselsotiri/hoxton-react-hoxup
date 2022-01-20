@@ -32,15 +32,27 @@
   "messages": [
     {
       "userId": 1,
-      "messageText": "Hello! 👋 ",
-      "conversationId": 2,
+      "messageText": "Hello Geri! 👋 ",
+      "conversationId": 1,
       "id": 1
     },
     {
       "userId": 2,
-      "messageText": "Hello! 👋 ",
+      "messageText": "Hello Ed! 👋 ",
       "conversationId": 1,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "messageText": "How are you! 👋 ",
+      "conversationId": 1,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "messageText": "God you! 👋 ",
+      "conversationId": 1,
+      "id": 4
     }
   ],
   "conversations": [

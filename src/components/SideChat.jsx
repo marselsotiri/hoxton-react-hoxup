@@ -1,4 +1,9 @@
-function SideChat({ conversations, currentUser, users }) {
+import { useNavigate } from "react-router-dom"
+
+function SideChat({ conversations, currentUser, users}) {
+
+  const navigate = useNavigate()
+
   return <ul>
     {/* <!-- This first item should always be present --> */}
 
@@ -7,6 +12,8 @@ function SideChat({ conversations, currentUser, users }) {
         <div><h3>+ Start a new Chat</h3></div>
       </button>
     </li>
+
+    
     {conversations.map(conversation => {
 
       const talkingToId =
@@ -17,13 +24,13 @@ function SideChat({ conversations, currentUser, users }) {
       const talkingToUser = users.find(user => user.id === talkingToId)
 
 
-      return <li>
-        <button className="chat-button">
+      return <li key={talkingToUser.id}>
+        <button className="chat-button" onClick={() => { navigate(`/logged-in/${conversation.id}`) }}>
           <img
             className="avatar"
             height="50"
             width="50"
-            alt=""
+            alt={talkingToUser.firstName}
             src={talkingToUser.avatar}
           />
           <div>
