@@ -3,18 +3,34 @@ import { useNavigate, useParams } from "react-router-dom"
 import MainMessages from "../components/MainMessages"
 import SideChat from "../components/SideChat"
 
-function Main() {
-    const [conversation, setConversation] = useState([])
+function Main({ currentUser, logOut, users }) {
+    const [currentConversation, setcurrentConversation] = useState([])
+    const [conversations, setConversations] = useState([])
     const params = useParams()
-    const navigate = useNavigate
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (currentUser === null) navigate('/')
+    }, [currentUser, navigate])
 
     useEffect(() => {
         if (params.conversationId) {
-            fetch("http://localhost:4000/conversations")
+            fetch(`http://localhost:4000/conversations/${params.conversationId}?_embed=messages`)
                 .then(resp => resp.json())
-                .then(conversationFromServer => setConversation(conversationFromServer))
+                .then(conversationFromServer => setcurrentConversation(conversationFromServer))
         }
-    }, [])
+    }, [params.conversationId])
+
+    useEffect(() => {
+        if (currentUser === null) return
+
+        fetch(`http://localhost:4000/conversations?userId=${currentUser.id}`)
+            .then(resp => resp.json())
+            .then(conversations => setConversations(conversations))
+    }, [currentUser])
+
+    if (currentUser === null) return <h1>Not signed in...</h1>
+
 
     return <div className="main-wrapper">
         {/* <!-- Side Panel --> */}
@@ -25,10 +41,11 @@ function Main() {
                     className="avatar"
                     width="50"
                     height="50"
-                    src="https://robohash.org/2"
-                    alt=""
+                    src={currentUser.avatar}
+                    alt={`${currentUser.firstName} ${currentUser.lastName}`}
                 />
-                <h3>Tin Man</h3>
+                <h3>{currentUser.firstName}</h3>
+                <button onClick={() => logOut()}>LOG OUT</button>
             </header>
 
             {/* <!-- Search form --> */}
@@ -41,7 +58,7 @@ function Main() {
                 />
             </form>
 
-            <SideChat />
+            <SideChat conversations={conversations} users={users} currentUser={currentUser} />
 
         </aside>
 

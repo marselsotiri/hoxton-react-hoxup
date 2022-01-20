@@ -33,13 +33,13 @@
     {
       "userId": 1,
       "messageText": "Hello! 👋 ",
-      "conversationId": 1,
+      "conversationId": 2,
       "id": 1
     },
     {
       "userId": 2,
       "messageText": "Hello! 👋 ",
-      "conversationId": 2,
+      "conversationId": 1,
       "id": 2
     }
   ],

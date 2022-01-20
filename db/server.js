@@ -10,8 +10,10 @@ server.use(middlewares);
 server.get("/conversations", (req, resp, next) => {
   let db = router.db;
   let { userId } = req.query;
+  // @ts-ignore
   userId = Number(userId);
 
+  // @ts-ignore
   if (userId > 0) {
     const results = db
       .get("conversations")
