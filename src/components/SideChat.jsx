@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function SideChat({ conversations, currentUser, users}) {
+function SideChat({ conversations, currentUser, users }) {
 
   const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ function SideChat({ conversations, currentUser, users}) {
       </button>
     </li>
 
-    
+
     {conversations.map(conversation => {
 
       const talkingToId =
