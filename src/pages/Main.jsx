@@ -64,7 +64,7 @@ function Main({ currentUser, logOut, users }) {
                 {/* <!-- Message Box --> */}
                 <footer>
 
-                   <FormMessage />
+                    <FormMessage />
 
                 </footer>
             </main>
