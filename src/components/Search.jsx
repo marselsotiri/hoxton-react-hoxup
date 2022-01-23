@@ -4,7 +4,6 @@ function Search() {
             type="search"
             name="messagesSearch"
             placeholder="Search chats"
-            value=""
         />
     </form>
 }

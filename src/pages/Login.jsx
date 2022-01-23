@@ -1,11 +1,11 @@
 
-function Login({ user, logIn }) {
+function Login({ users, logIn }) {
 
     return <div className="main-wrapper login">
         <section className="login-section">
             <h2>Choose your user!</h2>
             <ul>
-                {user.map(user => <li key={user.id}>
+                {users.map(user => <li key={user.id}>
                     <button className="user-selection" onClick={() => logIn(user)}>
                         <img
                             className="avatar"

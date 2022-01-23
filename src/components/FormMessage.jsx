@@ -1,12 +1,23 @@
-function FormMessage() {
-    return <form className="panel conversation__message-box">
+function FormMessage({ createMessage }) {
+
+    return <form className="panel conversation__message-box"
+        onSubmit={e => {
+            e.preventDefault()
+            // @ts-ignore
+            createMessage(e.target.text.value)
+            // @ts-ignore
+            e.target.reset()
+        }
+        }
+    >
         <input
             type="text"
             placeholder="Type a message"
-            // @ts-ignore
-            rows="1"
-            value=""
-        /><button type="submit">
+            name="text"
+            required
+            autoComplete="off"
+        />
+        <button type="submit">
             {/* <!-- This is the send button --> */}
             <svg
                 xmlns="http://www.w3.org/2000/svg"

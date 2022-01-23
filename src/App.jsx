@@ -5,13 +5,15 @@ import Main from "./pages/Main";
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [user, setUser] = useState([])
+  const [users, setUsers] = useState([])
+  const [modal, setModal] = useState('')
+
   const navigate = useNavigate()
 
   useEffect(() => {
     fetch("http://localhost:4000/users")
       .then(resp => resp.json())
-      .then(userFromServer => setUser(userFromServer))
+      .then(userFromServer => setUsers(userFromServer))
   }, [])
 
   function logIn(user){
@@ -27,11 +29,11 @@ export default function App() {
 
     <Route index element={<Navigate replace to="/login" />} />
 
-    <Route path="/login" element={<Login user={user} logIn={logIn}/>} />
+    <Route path="/login" element={<Login users={users} logIn={logIn}/>} />
 
-    <Route path="/logged-in" element={<Main users={user} currentUser={currentUser} logOut={logOut} />} />
+    <Route path="/logged-in" element={<Main users={users} currentUser={currentUser} logOut={logOut} modal={modal} setModal={setModal} />} />
 
-    <Route path="/logged-in/:conversationId" element={<Main users={user} currentUser={currentUser} logOut={logOut} />} />
+    <Route path="/logged-in/:conversationId" element={<Main users={users} currentUser={currentUser} logOut={logOut} modal={modal} setModal={setModal} />} />
 
     {/* <Route path="*" element={<NotFound />} /> */}
 

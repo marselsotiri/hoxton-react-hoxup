@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function SideChat({ conversations, currentUser, users }) {
+function SideChat({ conversations, currentUser, users, setModal }) {
 
   const navigate = useNavigate()
 
@@ -8,7 +8,12 @@ function SideChat({ conversations, currentUser, users }) {
     {/* <!-- This first item should always be present --> */}
 
     <li>
-      <button className="chat-button">
+      <button className="chat-button"
+        onClick={() => {
+          // display a "start-chat" modal ✅
+          setModal('start-chat')
+        }}
+      >
         <div><h3>+ Start a new Chat</h3></div>
       </button>
     </li>
