@@ -10,6 +10,7 @@ import SideHeader from "../components/SideHeader"
 function Main({ currentUser, logOut, users, modal, setModal }) {
     const [conversations, setConversations] = useState([])
     const [currentConversation, setcurrentConversation] = useState(null)
+    const [search, setSearch] = useState("");
     const params = useParams()
     const navigate = useNavigate()
 
@@ -77,6 +78,7 @@ function Main({ currentUser, logOut, users, modal, setModal }) {
         return true
     })
 
+
     function createConversation(participantId) {
         fetch('http://localhost:4000/conversations', {
             method: 'POST',
@@ -95,6 +97,7 @@ function Main({ currentUser, logOut, users, modal, setModal }) {
             })
     }
 
+
     if (currentUser === null) return <h1>Not signed in...</h1>
 
 
@@ -107,11 +110,11 @@ function Main({ currentUser, logOut, users, modal, setModal }) {
 
             {/* <!-- Search form --> */}
 
-            <Search />
+            <Search setSearch={setSearch} />
 
             {/* <!-- Side Chat --> */}
 
-            <SideChat conversations={conversations} users={users} currentUser={currentUser} setModal={setModal} />
+            <SideChat conversationsToDisplay={conversations} users={users} currentUser={currentUser} setModal={setModal} search={search} />
 
         </aside>
 

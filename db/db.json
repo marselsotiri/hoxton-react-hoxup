@@ -27,6 +27,13 @@
       "phoneNumber": "+696969696969",
       "avatar": "https://avatars.dicebear.com/api/avataaars/NicolasMarcora.svg",
       "id": 4
+    },
+    {
+      "firstName": "Marsel",
+      "lastName": "Sotiri",
+      "phoneNumber": "065947744",
+      "avatar": "https://avatars.dicebear.com/api/avataaars/MarselSotiri.svg",
+      "id": 5
     }
   ],
   "messages": [
@@ -361,6 +368,16 @@
       "userId": 4,
       "participantId": 3,
       "id": 6
+    },
+    {
+      "userId": 5,
+      "participantId": 2,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "participantId": 5,
+      "id": 8
     }
   ]
 }

@@ -29,7 +29,7 @@ export default function App() {
 
     <Route index element={<Navigate replace to="/login" />} />
 
-    <Route path="/login" element={<Login users={users} logIn={logIn}/>} />
+    <Route path="/login" element={<Login users={users} setUsers={setUsers} logIn={logIn} modal={modal} setModal={setModal} />} />
 
     <Route path="/logged-in" element={<Main users={users} currentUser={currentUser} logOut={logOut} modal={modal} setModal={setModal} />} />
 

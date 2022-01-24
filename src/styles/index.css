@@ -255,6 +255,14 @@ textarea:focus {
   position: relative;
 }
 
+.modal-title {
+  text-align: center;
+}
+
+.modal input {
+  border: solid 1px black;
+}
+
 .modal .close-modal {
   position: absolute;
   top: -10px;
@@ -268,6 +276,19 @@ textarea:focus {
   width: 30px;
   display: grid;
   place-items: center;
+}
+
+.create-user {
+  text-align: center;
+  justify-self: center;
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  background-color: var(--background-stripe);
+  border-radius: 3px;
+}
+
+.delete-account {
+  color: crimson;
 }
 
 @media screen and (min-width: 1440px) {

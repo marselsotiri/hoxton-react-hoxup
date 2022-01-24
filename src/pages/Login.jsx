@@ -1,5 +1,6 @@
+import CreateUserModal from "../components/CreateUserModal"
 
-function Login({ users, logIn }) {
+function Login({ users, setUsers, logIn, modal, setModal }) {
 
     return <div className="main-wrapper login">
         <section className="login-section">
@@ -20,10 +21,15 @@ function Login({ users, logIn }) {
                 )}
 
                 <li>
-                    <button className="user-selection"><h3>+ Add a new user</h3></button>
+                    <button className="user-selection"
+                    onClick={() => setModal('new-User') }
+                    ><h3>+ Add a new user</h3></button>
                 </li>
             </ul>
         </section>
+        {modal === 'new-User' ? (
+          <CreateUserModal users={users} setUsers={setUsers}  setModal={setModal} />  
+        ) : null}
     </div>
 
 }
